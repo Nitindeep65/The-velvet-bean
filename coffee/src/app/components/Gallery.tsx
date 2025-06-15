@@ -1,11 +1,8 @@
 const images = [
-  "/images/coffee1.jpg",
-  "/images/coffee2.jpg",
-  "/images/coffee3.jpg",
-  "/images/plant1.jpg",
-  "/images/plant2.jpg",
-  "/images/outdoor.jpg",
-];
+  "/images/1.jpg",
+  "/images/2.jpg",
+  "/images/3.jpg",
+]
 
 export default function Gallery() {
   return (
