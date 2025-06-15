@@ -29,7 +29,7 @@ export default function Hero() {
         {/* Button Group */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <button
-            onClick={() => router.push("/about")}
+            onClick={() => router.push("/story")}
             className="bg-white text-[#4b2e2e] px-6 py-3 font-semibold rounded-full hover:bg-[#f5ece6] transition-all duration-300 shadow-md"
           >
             Explore Our Story

@@ -2,17 +2,25 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function SplashPage() {
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push("/Signup"); // 🔁 Change this to your actual first page (e.g., /signup)
-    }, 2500);
+    if (status === "loading") return; // wait for session to load
 
-    return () => clearTimeout(timer);
-  }, [router]);
+    if (session) {
+      router.push("/Coffee"); // user is logged in → redirect to home
+    } else {
+      const timer = setTimeout(() => {
+        router.push("/Signup"); // not logged in → go to signup
+      }, 2500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [session, status, router]);
 
   return (
     <div className="min-h-screen bg-[#faf8f5] dark:bg-[#121212] flex items-center justify-center px-4">
